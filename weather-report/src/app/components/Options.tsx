@@ -6,7 +6,14 @@ interface Location {
 
 export default function Options({ locations }: { locations: Location[] }) {
   const options = locations.map((x) => (
-    <li key={x.id}>{x.name && <span>{`,${x.name}`}</span>}</li>
+    <li key={x.id}>
+      {x.name && (
+        <span>
+          {x.name}
+          {x.region && `, ${x.region}`}
+        </span>
+      )}
+    </li>
   ));
 
   return <ul>{options}</ul>;

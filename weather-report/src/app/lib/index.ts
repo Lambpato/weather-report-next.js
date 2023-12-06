@@ -4,7 +4,6 @@ export const getSearch = async (query: string) => {
     if (!response.ok) throw new Error(`Something bad happened ${response.status}`);
     const jsonData = await response.json();
     return jsonData;
-    // console.log(jsonData);
   } catch (e) {
     console.error(e);
   }
