@@ -31,14 +31,19 @@ export default function SearchBar() {
   };
 
   return (
-    <div>
-      <input
-        className='text-black'
-        type='text'
-        value={inputValue}
-        onChange={onInputChange}
-      />
-      {inputValue !== '' && <Options locations={city} />}
+    <div className='flex justify-center'>
+      <div className='w-3/4 grid place-content-center border-2 rounded-xl drop-shadow-lg2 '>
+        <div>
+          <h1 className='text-center'>Weather Report</h1>
+          <input
+            className='text-black'
+            type='text'
+            value={inputValue}
+            onChange={onInputChange}
+          />
+        </div>
+        {inputValue !== '' && <Options locations={city} />}
+      </div>
     </div>
   );
 }

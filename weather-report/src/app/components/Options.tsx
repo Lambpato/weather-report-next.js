@@ -16,5 +16,9 @@ export default function Options({ locations }: { locations: Location[] }) {
     </li>
   ));
 
-  return <ul>{options}</ul>;
+  return (
+    <div>
+      <ul>{options}</ul>
+    </div>
+  );
 }
