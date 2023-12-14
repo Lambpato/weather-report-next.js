@@ -6,7 +6,7 @@ interface Location {
 
 export default function Options({ locations }: { locations: Location[] }) {
   const options = locations.map((x) => (
-    <li key={x.id}>
+    <li key={x.id} className='border text-black'>
       {x.name && (
         <span>
           {x.name}
@@ -18,7 +18,7 @@ export default function Options({ locations }: { locations: Location[] }) {
 
   return (
     <div>
-      <ul>{options}</ul>
+      <ul className='bg-white'>{options}</ul>
     </div>
   );
 }
