@@ -31,18 +31,21 @@ export default function SearchBar() {
   };
 
   return (
-    <div className='flex justify-center'>
-      <div className='w-3/4 grid place-content-center border-2 rounded-xl drop-shadow-lg2 '>
-        <div>
-          <h1 className='text-center'>Weather Report</h1>
+    <div className='grid place-items-center items-start h-screen pt-12'>
+      <div className='w-3/4 border-2 rounded-xl h-2/5 p-5'>
+        <h1 className='font-sans text-center font-medium text-2xl pb-5'>
+          Weather Report
+        </h1>
+        <div className='grid place-content-center'>
           <input
-            className='text-black'
+            className='text-black rounded focus:outline-double w-64
+            '
             type='text'
             value={inputValue}
             onChange={onInputChange}
           />
+          {inputValue.trim().length > 2 && <Options locations={city} />}
         </div>
-        {inputValue !== '' && <Options locations={city} />}
       </div>
     </div>
   );
