@@ -1,12 +1,19 @@
-interface Location {
-  id: number;
-  name?: string;
-  region?: string;
+interface OptionProps {
+  locations: { id: number; name: string; region?: string }[];
+  setInputValue: (name: string) => void;
 }
 
-export default function Options({ locations }: { locations: Location[] }) {
+export default function Options({ locations, setInputValue }: OptionProps) {
+  const setValue = (name: string) => {
+    setInputValue(name);
+  };
+
   const options = locations.map((x) => (
-    <li key={x.id} className='border text-black'>
+    <li
+      key={x.id}
+      onClick={() => setValue(x.name)}
+      className='border text-black cursor-pointer'
+    >
       {x.name && (
         <span>
           {x.name}
@@ -16,9 +23,5 @@ export default function Options({ locations }: { locations: Location[] }) {
     </li>
   ));
 
-  return (
-    <div>
-      <ul className='bg-white'>{options}</ul>
-    </div>
-  );
+  return <ul className='bg-white'>{options}</ul>;
 }

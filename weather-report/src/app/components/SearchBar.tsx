@@ -5,14 +5,8 @@ import Options from './Options';
 import { getSearch } from '../lib';
 
 export default function SearchBar() {
-  interface City {
-    id: number;
-    name: string;
-    region: string;
-  }
-
   const [inputValue, setInputValue] = useState('');
-  const [city, setCity] = useState<City[]>([]);
+  const [city, setCity] = useState([]);
 
   const onInputChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -38,13 +32,15 @@ export default function SearchBar() {
         </h1>
         <div className='grid place-content-center'>
           <input
-            className='text-black rounded focus:outline-double w-64
+            className='text-black py-0.5 rounded focus:outline-double w-64
             '
             type='text'
             value={inputValue}
             onChange={onInputChange}
           />
-          {inputValue.trim().length > 2 && <Options locations={city} />}
+          {inputValue.trim().length > 2 && (
+            <Options setInputValue={setInputValue} locations={city} />
+          )}
         </div>
       </div>
     </div>
