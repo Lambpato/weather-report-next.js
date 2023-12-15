@@ -32,7 +32,7 @@ export default function SearchBar() {
         </h1>
         <div className='grid place-content-center'>
           <input
-            className='text-black rounded focus:outline-double w-64
+            className='text-black py-0.5 rounded focus:outline-double w-64
             '
             type='text'
             value={inputValue}
