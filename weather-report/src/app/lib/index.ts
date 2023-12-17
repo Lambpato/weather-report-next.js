@@ -9,6 +9,10 @@ export const getSearch = async (query: string) => {
   }
 };
 
+export const saveLocation = (location :string) => {
+  localStorage.setItem('location', JSON.stringify(location));
+};
+
 export const getForecast = async (query: string) => {
   try {
     const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?q=${query}&key=bb2468a183ea4225855173630232702`);
