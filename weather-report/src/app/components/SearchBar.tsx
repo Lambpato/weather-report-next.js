@@ -2,7 +2,7 @@
 
 import { ChangeEvent, useState } from 'react';
 import Options from './Options';
-import { getSearch } from '../lib';
+import { getSearch, saveLocation } from '../lib';
 
 export default function SearchBar() {
   const [inputValue, setInputValue] = useState('');
@@ -26,22 +26,27 @@ export default function SearchBar() {
 
   return (
     <div className='grid place-items-center items-start h-screen pt-12'>
-      <div className='w-3/4 border-2 rounded-xl h-2/5 p-5'>
+      <div className='w-4/5 border-2 rounded-xl h-2/5 p-5'>
         <h1 className='font-sans text-center font-medium text-2xl pb-5'>
           Weather Report
         </h1>
-        <div className='grid place-content-center'>
-          <input
-            className='text-black py-0.5 rounded focus:outline-double w-64
+        <form className='flex flex-row justify-between items-start'>
+          <div>
+            <input
+              className='text-black w-48 py-0.5 rounded focus:outline-double
             '
-            type='text'
-            value={inputValue}
-            onChange={onInputChange}
-          />
-          {inputValue.trim().length > 2 && (
-            <Options setInputValue={setInputValue} locations={city} />
-          )}
-        </div>
+              type='text'
+              value={inputValue}
+              onChange={onInputChange}
+            />
+            {inputValue.trim().length > 2 && (
+              <Options setInputValue={setInputValue} locations={city} />
+            )}
+          </div>
+          <button type='submit' className='font-medium'>
+            Submit
+          </button>
+        </form>
       </div>
     </div>
   );
