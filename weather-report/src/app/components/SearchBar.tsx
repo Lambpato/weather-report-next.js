@@ -30,12 +30,15 @@ export default function SearchBar() {
         <h1 className='font-sans text-center font-medium text-2xl pb-5'>
           Weather Report
         </h1>
-        <form className='flex flex-row justify-between items-start'>
+        <form
+          onSubmit={saveLocation}
+          className='flex flex-row justify-between items-start'
+        >
           <div>
             <input
-              className='text-black w-48 py-0.5 rounded focus:outline-double
-            '
+              className='text-black w-48 py-0.5 rounded focus:outline-double'
               type='text'
+              name='location'
               value={inputValue}
               onChange={onInputChange}
             />
