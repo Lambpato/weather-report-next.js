@@ -15,7 +15,7 @@ export default function Options({ locations, setInputValue }: OptionProps) {
       className='border text-black cursor-pointer'
     >
       {x.name && (
-        <span>
+        <span className='text-xs'>
           {x.name}
           {x.region && `, ${x.region}`}
         </span>
