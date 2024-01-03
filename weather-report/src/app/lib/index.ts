@@ -1,4 +1,5 @@
 import { FormEvent } from 'react'
+import { redirect } from 'next/navigation';
 
 export const getSearch = async (query: string) => {
   try {
@@ -8,17 +9,6 @@ export const getSearch = async (query: string) => {
     return jsonData;
   } catch (e) {
     console.error(e);
-  }
-};
-
-export const saveLocation = async (e: FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  try {
-    const formData = new FormData(e.currentTarget);
-    const locationName = formData.get('location') as string;
-    localStorage.setItem('location', JSON.stringify(await getForecast(locationName)));
-  } catch (error) {
-    console.error('Error saving location:', error);
   }
 };
 
@@ -33,6 +23,23 @@ export  const getForecast = async (query: string) => {
   }
 }
 
-// const locationDataString = localStorage.getItem('location');
-// const test = JSON.parse(locationDataString ?? '{}');
-// console.log(test);
+export const saveLocation = async (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  try {
+    const formData = new FormData(e.currentTarget);
+    const locationName = formData.get('location') as string;
+    const locationData = await getForecast(locationName);
+    localStorage.setItem('location', JSON.stringify(locationData));
+  } catch (error) {
+    console.error('Error saving location:', error);
+  }
+};
+
+export const forecastData = () => {
+  if (typeof window !== 'undefined') {
+    const locationDataString = localStorage.getItem('location');
+    return locationDataString && JSON.parse(locationDataString);
+  }
+
+  return null;
+};

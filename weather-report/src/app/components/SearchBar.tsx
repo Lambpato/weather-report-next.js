@@ -1,8 +1,8 @@
 'use client';
 
 import { ChangeEvent, useState } from 'react';
-import Options from './Options';
 import { getSearch, saveLocation } from '../lib';
+import Options from './Options';
 
 export default function SearchBar() {
   const [inputValue, setInputValue] = useState('');
