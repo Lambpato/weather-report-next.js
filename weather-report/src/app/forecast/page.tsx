@@ -1,5 +1,7 @@
-import MobilePreview from '../components/MobilePreview';
+'use client';
 
 export default function Page() {
-  return <MobilePreview />;
+  console.log('youve redirected');
+
+  return <div>hello</div>;
 }

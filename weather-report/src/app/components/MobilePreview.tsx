@@ -1,8 +1,5 @@
-import { forecastData } from '../lib';
+import DayCast from './DayCast';
 
-export default function MobilePreview() {
-  console.log('Rendering MobilePreview component');
-  const data = forecastData();
-  console.log(`Mobile Preview ${data}`);
-  return <div></div>;
+export default function MobilePreview(data: object) {
+  return;
 }
