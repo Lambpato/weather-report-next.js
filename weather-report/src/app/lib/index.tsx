@@ -1,6 +1,7 @@
 'use server';
 
 import { FormEvent } from 'react';
+import { redirect } from 'next/navigation';
 
 export const getSearch = async (query: string) => {
   try {
@@ -35,8 +36,10 @@ export const saveLocation = async (e: FormEvent<HTMLFormElement>) => {
   try {
     const formData = new FormData(e.currentTarget);
     const locationName = formData.get('location') as string;
-    const locationData = await getForecast(locationName);
-    localStorage.setItem('location', JSON.stringify(locationData));
+    localStorage.setItem(
+      'location',
+      JSON.stringify(await getForecast(locationName))
+    );
   } catch (error) {
     console.error('Error saving location:', error);
   }

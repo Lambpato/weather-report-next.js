@@ -1,7 +1,7 @@
 'use client';
 
-import { redirect, useRouter } from 'next/navigation';
-import { ChangeEvent, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { getSearch, saveLocation } from '../lib';
 import Options from './Options';
 
@@ -26,9 +26,10 @@ export default function SearchBar() {
     }
   };
 
-  const redirectPage = (e: any) => {
+  const redirectPage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('redirecting');
+    console.log('pressed');
+    saveLocation(e);
     push('/forecast');
   };
 
@@ -39,10 +40,7 @@ export default function SearchBar() {
           Weather Report
         </h1>
         <form
-          onSubmit={(e) => {
-            saveLocation(e);
-            redirectPage(e);
-          }}
+          onSubmit={redirectPage}
           className='flex flex-row justify-between items-start'
         >
           <div>
