@@ -103,7 +103,7 @@ export default function HourlyWeather({
   ));
 
   return (
-    <div className="overflow-x-scroll flex items-center">
+    <div className="w-full overflow-x-scroll items-center">
       <div className="flex ">{hourlyScroll}</div>
     </div>
   );

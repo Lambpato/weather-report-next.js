@@ -24,11 +24,18 @@ export interface forecastTypes {
 
 interface forecastdaytypes {
   date: string;
+  astro: {
+    moonrise: string;
+    moonset: string;
+    sunrise: string;
+    sunset: string;
+  };
   day: {
     condition: {
       icon: string;
       text: string;
     };
+    daily_chance_of_rain: number;
     maxtemp_c: number;
     maxtemp_f: number;
     mintemp_c: number;

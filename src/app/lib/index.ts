@@ -30,7 +30,7 @@ export const saveLocation = async (e: FormEvent<HTMLFormElement>) => {
 export const getForecast = async (query: string) => {
   try {
     const response = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=bb2468a183ea4225855173630232702&q=${query}&days=7`
+      `https://api.weatherapi.com/v1/forecast.json?key=bb2468a183ea4225855173630232702&q=${query}&days=7&alerts=yes`
     );
     if (!response.ok)
       throw new Error(`Something bad happened ${response.status}`);
