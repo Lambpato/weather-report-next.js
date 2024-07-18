@@ -29,10 +29,10 @@ export default function DailyWeather({ weekday }: weekdayTypes) {
     "Saturday",
   ];
 
-  const weekdayWeather = weekday.map((day) => (
+  const weekdayWeather = weekday.map((day, index) => (
     <div
-      key={weekday.indexOf(day)}
-      className="grid grid-cols-3 place-items-center px-4 py-2 rounded-xl shadow-md shadow-cyan-600/45"
+      key={index}
+      className="grid grid-cols-3 place-items-center px-4 py-1 border border-cyan-600 rounded-xl shadow-md shadow-cyan-600/45"
     >
       <p className="w-full text-start text-lg font-semibold">
         {
@@ -59,7 +59,7 @@ export default function DailyWeather({ weekday }: weekdayTypes) {
 
   return (
     <section className="max-w-xl grid place-items-center">
-      <div className="w-full bg-sky-500 grid rounded-xl shadow-2xl flex p-6 m-6 gap-2">
+      <div className="w-full bg-sky-500 grid rounded-xl shadow-2xl p-6 m-6 gap-2">
         {weekdayWeather}
       </div>
     </section>

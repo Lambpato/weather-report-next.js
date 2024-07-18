@@ -1,4 +1,7 @@
 export interface forecastTypes {
+  alerts: {
+    alert: alertTypes[];
+  };
   location: {
     country: string;
     name: string;
@@ -31,6 +34,8 @@ interface forecastdaytypes {
     sunset: string;
   };
   day: {
+    avgtemp_c: number;
+    avgtemp_f: number;
     condition: {
       icon: string;
       text: string;
@@ -52,4 +57,11 @@ interface forecastdaytypes {
       time: string;
     }
   ];
+}
+
+interface alertTypes {
+  desc: string;
+  headline: string;
+  instructions: string;
+  severity: string;
 }

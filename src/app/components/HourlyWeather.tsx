@@ -84,8 +84,8 @@ export default function HourlyWeather({
     return standardTime;
   };
 
-  const hourlyScroll = displayHours?.map((x) => (
-    <div key={displayHours.indexOf(x)} className="grid place-items-center	p-1.5">
+  const hourlyScroll = displayHours.map((x, index) => (
+    <div key={index} className="grid place-items-center	p-1.5">
       <p className="text-lg font-medium">{`${Math.round(x.temp_f)}°`}</p>
       <div className="w-max">
         <Image
@@ -104,7 +104,7 @@ export default function HourlyWeather({
 
   return (
     <div className="w-full overflow-x-scroll items-center">
-      <div className="flex ">{hourlyScroll}</div>
+      <div className="flex">{hourlyScroll}</div>
     </div>
   );
 }
