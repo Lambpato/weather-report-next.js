@@ -1,4 +1,7 @@
 export interface forecastTypes {
+  alerts: {
+    alert: alertTypes[];
+  };
   location: {
     country: string;
     name: string;
@@ -24,11 +27,20 @@ export interface forecastTypes {
 
 interface forecastdaytypes {
   date: string;
+  astro: {
+    moonrise: string;
+    moonset: string;
+    sunrise: string;
+    sunset: string;
+  };
   day: {
+    avgtemp_c: number;
+    avgtemp_f: number;
     condition: {
       icon: string;
       text: string;
     };
+    daily_chance_of_rain: number;
     maxtemp_c: number;
     maxtemp_f: number;
     mintemp_c: number;
@@ -45,4 +57,11 @@ interface forecastdaytypes {
       time: string;
     }
   ];
+}
+
+interface alertTypes {
+  desc: string;
+  headline: string;
+  instructions: string;
+  severity: string;
 }
