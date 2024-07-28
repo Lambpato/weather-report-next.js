@@ -91,8 +91,8 @@ export default function HourlyWeather({
         <Image
           src={`https:${x.condition.icon}`}
           alt={`${x.condition.text} icon`}
-          width={50}
-          height={50}
+          width={55}
+          height={55}
           priority={true}
         />
       </div>
@@ -103,7 +103,7 @@ export default function HourlyWeather({
   ));
 
   return (
-    <div className="w-full overflow-x-scroll items-center">
+    <div className="w-full overflow-x-scroll grid place-items-center">
       <div className="flex">{hourlyScroll}</div>
     </div>
   );

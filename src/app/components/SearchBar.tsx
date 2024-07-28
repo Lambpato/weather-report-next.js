@@ -1,11 +1,18 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
-import { getSearch, saveLocation } from "../lib";
+import { useRouter } from "next/navigation";
+import { getSearch, saveLocation } from "../lib"
 
 export default function SearchBar() {
   const [inputValue, setInputValue] = useState("");
   const [city, setCity] = useState([]);
+
+
+    if(localStorage.getItem("location")){
+      const router = useRouter();
+      router.push('/forecast');
+    }
 
   const onInputChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
