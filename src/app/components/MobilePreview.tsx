@@ -21,8 +21,8 @@ export default function MobilePreview({
   }, [forecast]);
 
   return (
-    <section className="max-w-sm hidden">
-      <div className="w-full rounded-2xl shadow-2xl shadow-cyan-950 flex px-6 py-3 m-6 gap-2">
+    <section className="max-w-sm md:hidden">
+      <div className="w-full rounded-2xl shadow-2xl shadow-cyan-950 flex px-6 py-3 gap-2">
         <div className="w-min">
           <p className="text-xl font-medium">{updatedForecast.location.name}</p>
           <Clock
