@@ -15,23 +15,23 @@ export default function Page() {
   const [forecast, setForecast] = useState<forecastTypes>();
   const [isMobilePreviewActive, setIsMobilePreviewActive] =
     useState<Boolean>(true);
+  const router = useRouter();
 
   useEffect(() => {
     const localStorageForecast: string | null =
       localStorage.getItem("location");
-    if (localStorageForecast) {
+
+    if (!localStorageForecast) {
+      router.push("/");
+    } else {
       const settingForecast = async () => {
         setForecast(await getForecast(localStorageForecast));
-        console.log(await getForecast(localStorageForecast));
       };
       settingForecast();
-    } else {
-      const router = useRouter();
-      router.push("/");
     }
-  }, []);
+  }, [router]);
 
-  if (forecast)
+  if (forecast) {
     return (
       <main className="max-width-2xl m-8 grid place-content-center">
         <div
@@ -146,4 +146,5 @@ export default function Page() {
         </div>
       </main>
     );
+  }
 }
