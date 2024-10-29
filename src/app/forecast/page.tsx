@@ -33,14 +33,14 @@ export default function Page() {
 
   if (forecast) {
     return (
-      <main className="max-width-2xl m-8 grid place-content-center">
+      <main className="max-width-2x m-8 grid">
         <div
           className={isMobilePreviewActive ? "grid" : "hidden"}
           onClick={() => setIsMobilePreviewActive(!isMobilePreviewActive)}
         >
           <MobilePreview forecast={forecast} />
         </div>
-        <div className={!isMobilePreviewActive ? "grid" : "hidden"}>
+        <div className={!isMobilePreviewActive ? "grid" : "hidden md:grid"}>
           <ChevronLeftIcon
             className="w-14 h-14 md:hidden"
             onClick={() => setIsMobilePreviewActive(!isMobilePreviewActive)}
@@ -72,9 +72,9 @@ export default function Page() {
               </div>
             </div>
           </section>
-          <div className="grid md:flex items-start">
+          <div className="grid md:grid-cols-2 gap-5">
             <section className="max-w-xl grid place-items-center">
-              <div className="w-full bg-sky-500 grid rounded-xl shadow-2xl p-6 m-6 gap-2">
+              <div className="w-full bg-sky-500 grid rounded-xl shadow-2xl p-6 gap-2">
                 <HourlyWeather
                   todayHours={forecast.forecast.forecastday[0].hour}
                   tmrwHours={forecast.forecast.forecastday[1].hour}
