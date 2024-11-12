@@ -1,5 +1,3 @@
-"useclient";
-
 import { FormEvent } from "react";
 
 export const getSearch = async (query: string) => {

@@ -33,7 +33,7 @@ export default function Page() {
 
   if (forecast) {
     return (
-      <main className="max-width-2x m-8 grid">
+      <main className="max-width-2x m-3 grid place-items-center">
         <div
           className={isMobilePreviewActive ? "grid" : "hidden"}
           onClick={() => setIsMobilePreviewActive(!isMobilePreviewActive)}
@@ -72,36 +72,48 @@ export default function Page() {
               </div>
             </div>
           </section>
-          <div className="grid md:grid-cols-2 gap-5">
-            <section className="max-w-xl grid place-items-center">
+          <div className="grid md:grid-cols-2 gap-3">
+            <section className="grid place-items-center">
               <div className="w-full bg-sky-500 grid rounded-xl shadow-2xl p-6 gap-2">
                 <HourlyWeather
                   todayHours={forecast.forecast.forecastday[0].hour}
                   tmrwHours={forecast.forecast.forecastday[1].hour}
                   timeZone={forecast.location.tz_id}
                 />
-                <div className="w-full flex justify-between">
+                <div className="grid grid-cols-2 gap-5">
                   <div className="flex flex-col justify-between p-4 border border-cyan-600 rounded-2xl shadow-md shadow-cyan-600/45">
-                    <h3 className="text-xl font-semibold">Condition</h3>
+                    <h3 className="text-2xl font-semibold">Condition</h3>
                     <Image
                       src={`https:${forecast.current.condition.icon}`}
                       alt={`${forecast.current.condition.text} icon`}
-                      width={60}
-                      height={60}
+                      width={75}
+                      height={75}
                     />
                     <p className="text-md font-medium">
                       {forecast.current.condition.text}
                     </p>
                   </div>
-                  <div className="w-min p-4 border border-cyan-600 rounded-xl shadow-md shadow-cyan-600/45">
-                    <h3 className="text-xl font-semibold">Wind Conditions</h3>
-                    <p className="text-md font-medium">{`Direction: ${forecast.current.wind_dir}`}</p>
-                    <p className="text-md font-medium">{`MPH: ${forecast.current.wind_mph}`}</p>
+                  <div className="flex flex-col p-4 border border-cyan-600 rounded-xl shadow-md shadow-cyan-600/45">
+                    <h3 className="text-2xl font-semibold">Wind Conditions</h3>
+                    <div className="h-full flex flex-col justify-around">
+                      <div className="flex items-center">
+                        <p className="text-lg font-medium">Direction:&nbsp;</p>
+                        <p className="text-base font-medium">
+                          {forecast.current.wind_dir}
+                        </p>
+                      </div>
+                      <div className="flex items-center">
+                        <p className="text-lg font-medium">MPH:&nbsp;</p>
+                        <p className="text-base font-medium">
+                          {forecast.current.wind_mph}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="w-full flex justify-between">
-                  <div className="p-4 border border-cyan-600 rounded-2xl shadow-md shadow-cyan-600/45">
-                    <h3 className="text-xl font-semibold">Humidity</h3>
+                <div className="grid grid-cols-2 gap-5">
+                  <div className="w-auto p-4 border border-cyan-600 rounded-2xl shadow-md shadow-cyan-600/45">
+                    <h3 className="text-2xl font-semibold">Humidity</h3>
                     <p className="text-lg font-medium">{`${forecast.current.humidity}%`}</p>
                     <Image
                       src="/humidity.svg"
@@ -115,8 +127,8 @@ export default function Page() {
                       className="drop-shadow-md"
                     />
                   </div>
-                  <div className="p-4 border border-cyan-600 rounded-2xl shadow-md shadow-cyan-600/45">
-                    <h3 className="text-xl font-semibold">Chance of Rain</h3>
+                  <div className="w-auto p-4 border border-cyan-600 rounded-2xl shadow-md shadow-cyan-600/45">
+                    <h3 className="text-2xl font-semibold">Chance of Rain</h3>
                     <p className="text-lg font-medium">{`${forecast.forecast.forecastday[0].day.daily_chance_of_rain}%`}</p>
                     <Image
                       src="https://cdn.weatherapi.com/weather/64x64/day/263.png"
@@ -128,14 +140,34 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="w-full p-4 border border-cyan-600 rounded-2xl shadow-md shadow-cyan-600/45 justify-between">
-                  <h3 className="text-xl font-semibold">Astro</h3>
-                  <div className="w-full flex justify-between">
-                    <p className="text-sm font-medium">{`Sunrise: ${forecast.forecast.forecastday[0].astro.sunrise}`}</p>
-                    <p className="text-sm font-medium">{`Sunset: ${forecast.forecast.forecastday[0].astro.sunset}`}</p>
+                  <h3 className="text-2xl text-center font-semibold">Astro</h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="flex justify-between items-center">
+                      <p className="text-base font-semibold">Sunrise:</p>
+                      <p className="text-sm font-medium">
+                        {forecast.forecast.forecastday[0].astro.sunrise}
+                      </p>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <p className="text-base font-semibold">Sunset:</p>
+                      <p className="text-sm font-medium">
+                        {forecast.forecast.forecastday[0].astro.sunset}
+                      </p>
+                    </div>
                   </div>
-                  <div className="w-full flex justify-between">
-                    <p className="text-sm font-medium">{`Moonrise: ${forecast.forecast.forecastday[0].astro.moonrise}`}</p>
-                    <p className="text-sm font-medium">{`Moonset: ${forecast.forecast.forecastday[0].astro.moonset}`}</p>
+                  <div className="grid grid-cols-2 gap-5">
+                    <div className="flex justify-between items-center">
+                      <p className="text-base font-semibold">Moonrise:</p>
+                      <p className="text-sm font-medium">
+                        {forecast.forecast.forecastday[0].astro.moonrise}
+                      </p>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <p className="text-base font-semibold">Moonset:</p>
+                      <p className="text-sm font-medium">
+                        {forecast.forecast.forecastday[0].astro.moonset}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

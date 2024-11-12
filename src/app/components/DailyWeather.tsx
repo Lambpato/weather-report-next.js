@@ -32,9 +32,10 @@ export default function DailyWeather({ weekday }: weekdayTypes) {
   const weekdayWeather = weekday.map((day, index) => (
     <div
       key={index}
-      className="grid grid-cols-3 place-items-center px-4 py-1 border border-cyan-600 rounded-xl shadow-md shadow-cyan-600/45"
+      className="grid grid-cols-2 place-items-center px-4 py-1 border border-cyan-600 rounded-xl shadow-md shadow-cyan-600/45"
     >
-      <p className="w-full text-start text-lg font-semibold">
+      <div className="w-full flex jusitfy-around items-center">
+         <p className="w-full text-lg font-semibold">
         {
           weekdays[
             (() => {
@@ -50,6 +51,8 @@ export default function DailyWeather({ weekday }: weekdayTypes) {
         width={45}
         height={45}
       />
+      </div>
+     
       <div className="w-full flex justify-around items-center">
         <p className="font-medium text-md text-slate-300">{`${Math.round(
           day.day.mintemp_f
