@@ -136,7 +136,7 @@ export default function Page() {
                         }}
                         className="drop-shadow-md"
                       />
-                      <p className="text-4xl md:text-6xl">{`${forecast.current.humidity}%`}</p>
+                      <p className="text-4xl md:text-5xl">{`${forecast.current.humidity}%`}</p>
                     </div>
                   </div>
                   <div className="w-auto p-4 border border-cyan-600 rounded-2xl shadow-md shadow-cyan-600/45">
