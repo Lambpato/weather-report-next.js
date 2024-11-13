@@ -86,7 +86,9 @@ export default function HourlyWeather({
 
   const hourlyScroll = displayHours.map((x, index) => (
     <div key={index} className="grid place-items-center	p-1.5">
-      <p className="text-lg font-medium">{`${Math.round(x.temp_f)}°`}</p>
+      <p className="text-lg font-medium md:text-xl">{`${Math.round(
+        x.temp_f
+      )}°`}</p>
       <div className="w-max">
         <Image
           src={`https:${x.condition.icon}`}
@@ -96,7 +98,7 @@ export default function HourlyWeather({
           priority={true}
         />
       </div>
-      <p className="text-lg font-medium">
+      <p className="text-lg font-medium md:text-xl">
         {militaryToStandard(x.time.slice(displayHours[0].time.indexOf(" ")))}
       </p>
     </div>
