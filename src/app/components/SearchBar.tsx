@@ -9,9 +9,10 @@ export default function SearchBar() {
   const [city, setCity] = useState([]);
   const [isDisabled, setIsDisabled] = useState(true);
   const router = useRouter();
-  const localStorageForecast: string | null = localStorage.getItem("location");
 
   useEffect(() => {
+    const localStorageForecast: string | null =
+      localStorage.getItem("location");
     localStorageForecast && router.push("/forecast");
   }, [router]);
 
@@ -34,15 +35,18 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="w-3/4 md:w-2/5 h-96 p-6 flex flex-col gap-16 bg-sky-500 border border-cyan-600 rounded-xl shadow-md shadow-cyan-700/45">
+    <div className="w-3/4 lg:w-3/5 h-96 p-6 flex flex-col gap-16 bg-sky-500 border border-cyan-600 rounded-xl shadow-md shadow-cyan-700/45">
       <h1 className="font-sans text-center font-medium text-3xl md:text-4xl">
         Weather Report
       </h1>
       <form
-        onSubmit={saveLocation}
+        onSubmit={(e) => {
+          saveLocation(e);
+          localStorage.getItem("location") && router.push("/forecast");
+        }}
         className="h-full flex flex-row justify-around items-start"
       >
-        <div className="md:w-2/5 grid gap-2">
+        <div className="lg:w-2/5 grid gap-2">
           <input
             className="w-48 md:h-9 md:w-64 md:text-xl font-medium text-black py-0.5 rounded focus:outline-double focus:outline-cyan-400"
             type="text"
