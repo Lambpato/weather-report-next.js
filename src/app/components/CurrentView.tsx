@@ -3,7 +3,6 @@ import { forecastTypes } from "../forecast/interface";
 import HourlyWeather from "./HourlyWeather";
 
 export default function CurrentView({ forecast }: { forecast: forecastTypes }) {
-  console.log("currentview", forecast);
   return (
     <section className="grid place-items-center">
       <div className="w-full bg-sky-500 grid rounded-xl shadow-2xl p-6 gap-2">

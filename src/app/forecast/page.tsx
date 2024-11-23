@@ -67,7 +67,7 @@ export default function Page() {
         <div className={!isMobilePreviewActive ? "grid" : "hidden md:grid"}>
           <section>
             <div className="grid place-items-center p-8 gap-3">
-              <h1 className="text-3xl md:text-5xl">{forecast.location.name}</h1>
+              <h1 className="text-3xl md:text-5xl">{`${forecast.location.name}, ${forecast.location.region}`}</h1>
               <h3 className="text-2xl md:text-4xl">{`${Math.round(
                 forecast.current.temp_f
               )}°`}</h3>
