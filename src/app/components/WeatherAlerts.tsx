@@ -43,7 +43,7 @@ export default function WeatherAlerts({ forecastAlerts }: alertsTypes) {
     ));
 
     return (
-      <section className="max-w-xl max-h-96	grid place-items-center">
+      <section className="max-h-96 grid place-items-center md:col-span-2">
         <div className="w-full bg-sky-500 grid rounded-xl shadow-2xl p-6 m-6 gap-2">
           <h1 className="text-center text-5xl font-bold text-red-600 drop-shadow-xl underline underline-offset-4 p-4 mb-4">
             Alerts
